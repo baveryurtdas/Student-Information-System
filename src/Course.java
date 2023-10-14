@@ -1,32 +1,43 @@
 public class Course {
-    Teacher teacher;
+    Teacher courseTeacher; //Dersin öğretmenini temsil eden Teacher sınıfı
     String name;
     String code;
     String prefix;
-    int note;
+    int examNote;
+    int verbalNote;
 
 
-    Course(String name,String code,String prefix){
-        this.name=name;
-        this.code=code;
-        this.prefix=prefix;
-        this.note=0;
+    //Ders sınıfının yapıcı metodu (constructor)
+    Course(String name, String code, String prefix) {
+        this.name = name;
+        this.code = code;
+        this.prefix = prefix;
+        this.examNote = 0;
+        this.verbalNote = 0;
 
+
+    }
+
+    //Dersin öğretmenini eklemek için kullanılan metot
+    public void addTeacher(Teacher t) {
+        if (this.prefix.equals(t.branch)) {
+            this.courseTeacher = t;
+            System.out.println("İşlem başarılı ");
+        } else {
+            System.out.println(t.name + " Akademisyeni bu dersi veremez.");
         }
 
-        void addTeacher(Teacher teacher){
-        if(teacher.branch.equals(this.prefix)){
-            this.teacher = teacher;
 
+    }
+
+
+    //Dersin öğretmenini ekrana yazdıran metot
+    void printTeacher() {
+        if (courseTeacher != null) {
+            System.out.println(this.name+" dersinin akademisyeni : " + courseTeacher.name);
         }else{
-            System.out.println("Öğretmen ve ders bölümleri uyusmuyor.");
+            System.out.println(this.name+" dersine Akademisyen atanmamıştır.");
         }
-
-
-        }
-
-        void printTeacher(){
-        this.teacher.print();
-        }
+    }
 
 }

@@ -3,6 +3,7 @@ public class Teacher {
     String cellno;
     String branch;
 
+    //Öğretmen sınıfının yapıcı metodu (constructor)
 
     Teacher(String name, String branch,String cellno){
         this.name=name;
@@ -10,6 +11,7 @@ public class Teacher {
         this.branch=branch;
     }
 
+    //Öğretmen bilgisini ekrana yazdıran metot
     void print(){
         System.out.println("Adı : " + this.name);
         System.out.println("Telefonu : " + this.cellno);
